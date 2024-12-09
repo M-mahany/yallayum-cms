@@ -1,40 +1,40 @@
 const orderColumn = [
   {
-    key: "num",
-    label: "SN.",
+    key: 'num',
+    label: 'SN.',
   },
   {
-    key: "totalAndDelivery",
-    label: "Amount",
+    key: 'grandTotal',
+    label: 'Amount',
   },
   {
-    key: "name",
-    label: "Name",
+    key: 'name',
+    label: 'Name',
   },
   {
-    key: "userName",
-    label: "User",
+    key: 'userName',
+    label: 'User',
   },
   {
-    key: "userPhone",
-    label: "Contact",
+    key: 'userPhone',
+    label: 'Contact',
   },
   {
-    key: "userEmail",
-    label: "Email",
+    key: 'userEmail',
+    label: 'Email',
   },
   {
-    key: "totalItems",
-    label: "Total Items",
+    key: 'totalItems',
+    label: 'Total Items',
   },
   {
-    key: "orderStatus",
-    label: "status",
+    key: 'orderStatus',
+    label: 'status',
   },
 
   {
-    key: "actions",
-    label: "Actions",
+    key: 'actions',
+    label: 'Actions',
   },
 ];
 export { orderColumn };

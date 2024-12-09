@@ -1,40 +1,40 @@
 const allCustomOrderColumn = [
   {
-    key: "num",
-    label: "SN.",
+    key: 'num',
+    label: 'SN.',
   },
   {
-    key: "totalAndDelivery",
-    label: "Amount",
+    key: 'grandTotal',
+    label: 'Amount',
   },
   {
-    key: "name",
-    label: "Order No.",
+    key: 'name',
+    label: 'Order No.',
   },
   {
-    key: "userName",
-    label: "Name",
+    key: 'userName',
+    label: 'Name',
   },
   {
-    key: "userPhoneNumber",
-    label: "Contact",
+    key: 'userPhoneNumber',
+    label: 'Contact',
   },
   {
-    key: "userEmail",
-    label: "Email",
+    key: 'userEmail',
+    label: 'Email',
   },
   {
-    key: "flavors",
-    label: "Flavors",
+    key: 'flavors',
+    label: 'Flavors',
   },
   {
-    key: "orderStatus",
-    label: "status",
+    key: 'orderStatus',
+    label: 'status',
   },
 
   {
-    key: "actions",
-    label: "Actions",
+    key: 'actions',
+    label: 'Actions',
   },
 ];
 export { allCustomOrderColumn };
