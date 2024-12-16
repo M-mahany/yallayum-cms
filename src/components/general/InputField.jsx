@@ -1,9 +1,9 @@
-import { Input, Select, SelectItem, Textarea } from "@nextui-org/react";
-import React, { useState } from "react";
-import { MdErrorOutline } from "react-icons/md";
-import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
+import { Input, Select, SelectItem, Textarea } from '@nextui-org/react';
+import React, { useState } from 'react';
+import { MdErrorOutline } from 'react-icons/md';
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 
-import { Checkbox } from "@nextui-org/react";
+import { Checkbox } from '@nextui-org/react';
 
 const InputField = ({
   type,
@@ -21,12 +21,14 @@ const InputField = ({
   errors,
   value,
   emailTrue = false,
-  text = ["active", "inactive"],
+  text = ['active', 'inactive'],
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
+
+  const customSelectOptions = ['PERCENTAGE', 'FIXED'];
 
   return (
     <>
@@ -36,7 +38,7 @@ const InputField = ({
           {isRequired && <span className="text-red-700"> *</span>}
         </label>
         <div className="field-container mt-2">
-          {type === "select" ? (
+          {type === 'select' ? (
             <Select
               variant="bordered"
               label={placeholder}
@@ -48,17 +50,17 @@ const InputField = ({
               size="lg"
               radius="md"
               aria-label={label || placeholder}
-              color={disabled ? "primary" : "#8F8F8F"}
+              color={disabled ? 'primary' : '#8F8F8F'}
               {...register(name)}
               classNames={{
                 inputWrapper: [
-                  "bordered",
-                  "border-1",
-                  "relative",
-                  "z-0",
-                  "border-black",
-                  "hover:border-[#3F7FAE]",
-                  "custom-input-design",
+                  'bordered',
+                  'border-1',
+                  'relative',
+                  'z-0',
+                  'border-black',
+                  'hover:border-[#3F7FAE]',
+                  'custom-input-design',
                 ],
               }}
             >
@@ -69,12 +71,16 @@ const InputField = ({
                     : item.name
                     ? item.name
                     : item
-                    ? text[0]
+                    ? customSelectOptions.includes(item)
+                      ? item
+                      : text[0]
+                    : customSelectOptions.includes(item)
+                    ? item
                     : text[1]}
                 </SelectItem>
               ))}
             </Select>
-          ) : type === "Checkbox" ? (
+          ) : type === 'Checkbox' ? (
             <Checkbox
               defaultSelected={defaultValue}
               required={isRequired}
@@ -86,14 +92,14 @@ const InputField = ({
               radius="md"
               aria-label={label || placeholder}
               labelPlaceholder="Secondary"
-              color={isInvalid ? "#00000" : "#8F8F8F"}
+              color={isInvalid ? '#00000' : '#8F8F8F'}
               {...register(name, { required: isRequired ? true : false })}
             >
               yes
             </Checkbox>
-          ) : type === "textarea" ? (
+          ) : type === 'textarea' ? (
             <Textarea
-              type={isVisible ? "text" : type}
+              type={isVisible ? 'text' : type}
               required={isRequired}
               variant="bordered"
               placeholder={placeholder}
@@ -106,21 +112,21 @@ const InputField = ({
               defaultValue={defaultValue}
               value={value}
               onValueChange={setValue}
-              color={isInvalid ? "#00000" : "#8F8F8F"}
+              color={isInvalid ? '#00000' : '#8F8F8F'}
               {...register(name, { required: isRequired ? true : false })}
               classNames={{
                 inputWrapper: [
-                  "bordered",
-                  "border-1",
-                  "border-[#EBEBEB]",
-                  "hover:border-[#3F7FAE]",
-                  "custom-input-design",
+                  'bordered',
+                  'border-1',
+                  'border-[#EBEBEB]',
+                  'hover:border-[#3F7FAE]',
+                  'custom-input-design',
                 ],
               }}
             />
           ) : (
             <Input
-              type={isVisible ? "text" : type}
+              type={isVisible ? 'text' : type}
               required={isRequired}
               variant="bordered"
               placeholder={placeholder}
@@ -133,15 +139,11 @@ const InputField = ({
               defaultValue={defaultValue}
               value={value}
               onValueChange={setValue}
-              color={isInvalid ? "#00000" : "#8F8F8F"}
+              color={isInvalid ? '#00000' : '#8F8F8F'}
               {...register(name, { required: isRequired ? true : false })}
               endContent={
-                type === "password" && (
-                  <button
-                    className="focus:outline-none"
-                    type="button"
-                    onClick={toggleVisibility}
-                  >
+                type === 'password' && (
+                  <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
                     {isVisible ? (
                       <FaRegEye className="text-2xl text-default-400 pointer-events-none" />
                     ) : (
@@ -152,20 +154,18 @@ const InputField = ({
               }
               classNames={{
                 inputWrapper: [
-                  "bordered",
-                  "border-1",
-                  "border-[#EBEBEB]",
-                  "hover:border-[#3F7FAE]",
-                  "custom-input-design",
+                  'bordered',
+                  'border-1',
+                  'border-[#EBEBEB]',
+                  'hover:border-[#3F7FAE]',
+                  'custom-input-design',
                 ],
               }}
             />
           )}
           {/* {error && <p className="text-sm text-red-800 p-2">{error}</p>} */}
           {errors && errors[name] && (
-            <p className="text-tiny text-danger pl-3 mt-1">
-              {errortext ? errortext : errors[name].message}
-            </p>
+            <p className="text-tiny text-danger pl-3 mt-1">{errortext ? errortext : errors[name].message}</p>
           )}
         </div>
       </div>

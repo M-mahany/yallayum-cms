@@ -1,16 +1,8 @@
-import React, { useState, useEffect } from "react";
-import {
-  Table,
-  TableHeader,
-  TableColumn,
-  TableBody,
-  TableRow,
-  TableCell,
-  Pagination,
-} from "@nextui-org/react";
-import Tableactionsicons from "./Tableactionsicons";
-import { Button } from "@nextui-org/react";
-import { formatLastLogin } from "../../utils/date";
+import React, { useState, useEffect } from 'react';
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Pagination } from '@nextui-org/react';
+import Tableactionsicons from './Tableactionsicons';
+import { Button } from '@nextui-org/react';
+import { formatLastLogin } from '../../utils/date';
 
 const Tableform = ({
   tableheading,
@@ -33,7 +25,7 @@ const Tableform = ({
   }, [searchFilter, itemPerPage]);
 
   const filteredData =
-    searchFilter && searchFilter.trim() !== ""
+    searchFilter && searchFilter.trim() !== ''
       ? filterdata?.filter((item) => item?.name?.includes(searchFilter))
       : filterdata;
 
@@ -53,9 +45,7 @@ const Tableform = ({
     <div className="Tableform border rounded-xl py-6 px-1 md:px-4 mt-10">
       {tableheading && (
         <>
-          <h2 className="text-xl font-medium uppercase text-black mb-4">
-            {tableheading}
-          </h2>
+          <h2 className="text-xl font-medium uppercase text-black mb-4">{tableheading}</h2>
           <hr className="border-b-1 rounded-none border-[#F5F5F5]" />
         </>
       )}
@@ -80,12 +70,7 @@ const Tableform = ({
         >
           <TableHeader>
             {tablecolumns?.map((tablecol) => (
-              <TableColumn
-                className={
-                  tablecol?.label === "Statement" ? "min-w-[550px]" : ""
-                }
-                key={tablecol.key}
-              >
+              <TableColumn className={tablecol?.label === 'Statement' ? 'min-w-[550px]' : ''} key={tablecol.key}>
                 {tablecol.label}
               </TableColumn>
             ))}
@@ -93,19 +78,16 @@ const Tableform = ({
           <TableBody items={items}>
             {items?.map((item, rowIndex) => (
               <TableRow key={rowIndex}>
-                {tablecolumns?.map((datacolumn) => (
-                  <TableCell
-                    key={datacolumn?.key}
-                    className="font-normal text-sm"
-                  >
-                    {datacolumn?.key === "num" ? count++ : null}
+                {tablecolumns?.map((datacolumn, colIndex) => (
+                  <TableCell key={datacolumn?.key} className="font-normal text-sm">
+                    {datacolumn?.key === 'num' ? count++ : null}
 
-                    {datacolumn?.key !== "actions" ? (
-                      datacolumn?.key === "isLive" ||
-                      datacolumn?.key === "isTrial" ||
-                      datacolumn?.key === "isApproved" ||
-                      datacolumn?.key === "customProduct" ||
-                      datacolumn?.key === "subscription" ? (
+                    {datacolumn?.key !== 'actions' ? (
+                      datacolumn?.key === 'isLive' ||
+                      datacolumn?.key === 'isTrial' ||
+                      datacolumn?.key === 'isApproved' ||
+                      datacolumn?.key === 'customProduct' ||
+                      datacolumn?.key === 'subscription' ? (
                         item[datacolumn?.key] ? (
                           <Button
                             variant="bordered"
@@ -123,7 +105,7 @@ const Tableform = ({
                             Not Approved
                           </Button>
                         )
-                      ) : datacolumn?.key === "isBlocked" ? (
+                      ) : datacolumn?.key === 'isBlocked' ? (
                         item[datacolumn?.key] ? (
                           <Button
                             variant="bordered"
@@ -141,30 +123,37 @@ const Tableform = ({
                             Active
                           </Button>
                         )
-                      ) : datacolumn?.key === "orderStatus" ? (
+                      ) : datacolumn?.key === 'orderScurrentUsagetatus' ? (
                         <Button
                           variant="bordered"
                           isDisabled
-                          className={`bg-transparent ${item[datacolumn?.key] === "PENDING" ? "text-red-500 border-red-500" : "text-[#3FD639] border-[#3FD639]"} !opacity-100`}
-
+                          className={`bg-transparent ${
+                            item[datacolumn?.key] === 'PENDING'
+                              ? 'text-red-500 border-red-500'
+                              : 'text-[#3FD639] border-[#3FD639]'
+                          } !opacity-100`}
                         >
                           {item[datacolumn?.key]}
                         </Button>
-                      ) : datacolumn?.key === "imageUrl" ? (
+                      ) : datacolumn?.key === 'imageUrl' ? (
                         <>
-                          <img
-                            src={item[datacolumn?.key]}
-                            width={100}
-                            height={400}
-                          />
+                          <img src={item[datacolumn?.key]} width={100} height={400} />
                         </>
                       ) : (
                         // Use innerText to strip HTML tags and entities
-                        <span
-                          dangerouslySetInnerHTML={{
-                            __html: item[datacolumn?.key],
-                          }}
-                        />
+                        <>
+                          <span
+                            style={{
+                              fontWeight: datacolumn?.key === 'currentUsage' ? 700 : 400,
+                            }}
+                            dangerouslySetInnerHTML={{
+                              __html: item[datacolumn?.key],
+                            }}
+                          />
+                          <span className="font-bold text-slate-400 text-xs">
+                            {datacolumn?.key === 'currentUsage' ? ' /' + (item?.limit + item?.currentUsage) : ''}
+                          </span>
+                        </>
                       )
                     ) : (
                       <Tableactionsicons

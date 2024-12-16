@@ -1,61 +1,63 @@
-import { createBrowserRouter } from "react-router-dom";
-import ForgotPassword from "../pages/signin/ForgotPassword";
-import ResetPassword from "../pages/signin/ResetPassword";
-import LogIn from "../pages/signin/LogIn";
-import RootLayout from "../components/layout/RootLayout";
-import Indexdashboard from "../pages/dashboarddefault/Indexdashboard";
-import AllMember from "../pages/MembersManagement/AllMember";
-import ProfileDetails from "../pages/profile/ProfileDetails";
-import ProfileUpdate from "../pages/profile/ProfileUpdate";
-import ProfilePassword from "../pages/profile/ProfilePassword";
-import ErrorPage from "../pages/ErrorPage";
-import ProtectedRoutes from "../components/general/ProtectedRoutes";
-import Newsletter from "../pages/SiteManagement/Newsletter";
-import BlogsComponent from "../pages/SiteManagement/blogs/BlogsComponent";
-import AddBlogs from "../pages/SiteManagement/blogs/AddBlogs";
-import EditBlogs from "../pages/SiteManagement/blogs/EditBlogs";
-import Products from "../pages/ecommerce/products/Products";
-import AddProduct from "../pages/ecommerce/products/AddProduct";
-import EditProducts from "../pages/ecommerce/products/EditProducts";
-import Categories from "../pages/ecommerce/Categories/Categories";
-import AddCategories from "../pages/ecommerce/Categories/AddCategories";
-import EditCategory from "../pages/ecommerce/Categories/EditCategory";
-import AllReviews from "../pages/ecommerce/reviews/AllReviews";
-import EditReviews from "../pages/ecommerce/reviews/EditReviews";
-import CustomProduct from "../pages/ecommerce/custom-product/CustomProduct";
-import EditCustomProduct from "../pages/ecommerce/custom-product/EditCustomProduct";
-import AddCustomFlavor from "../pages/ecommerce/custom-product/AddCustomFlavor";
-import AllOrders from "../pages/ecommerce/order/AllOrders";
-import EditOrders from "../pages/ecommerce/order/EditOrder";
-import AllCustomOrder from "../pages/ecommerce/custom-order/AllCustomOrder";
-import EditCustomOrder from "../pages/ecommerce/custom-order/EditCustomOrder";
-import EditMember from "../pages/MembersManagement/EditMember";
-import AddRecipes from "../pages/SiteManagement/recipes/AddRecipes";
-import AllRecipes from "../pages/SiteManagement/recipes/AllRecipes";
-import EditRecipes from "../pages/SiteManagement/recipes/EditRecipes";
-import PromoComponent from "../pages/ecommerce/promo/PromoComponent";
-import AddPromo from "../pages/ecommerce/promo/AddPromo";
-import EditPromo from "../pages/ecommerce/promo/EditPromo";
-import TickerComponent from "../pages/SiteManagement/ticker/TickerComponent";
-import AddTicker from "../pages/SiteManagement/ticker/AddTicker";
-import EditTicker from "../pages/SiteManagement/ticker/EditTicker";
+import { createBrowserRouter } from 'react-router-dom';
+import ForgotPassword from '../pages/signin/ForgotPassword';
+import ResetPassword from '../pages/signin/ResetPassword';
+import LogIn from '../pages/signin/LogIn';
+import RootLayout from '../components/layout/RootLayout';
+import Indexdashboard from '../pages/dashboarddefault/Indexdashboard';
+import AllMember from '../pages/MembersManagement/AllMember';
+import ProfileDetails from '../pages/profile/ProfileDetails';
+import ProfileUpdate from '../pages/profile/ProfileUpdate';
+import ProfilePassword from '../pages/profile/ProfilePassword';
+import ErrorPage from '../pages/ErrorPage';
+import ProtectedRoutes from '../components/general/ProtectedRoutes';
+import Newsletter from '../pages/SiteManagement/Newsletter';
+import BlogsComponent from '../pages/SiteManagement/blogs/BlogsComponent';
+import AddBlogs from '../pages/SiteManagement/blogs/AddBlogs';
+import EditBlogs from '../pages/SiteManagement/blogs/EditBlogs';
+import Products from '../pages/ecommerce/products/Products';
+import AddProduct from '../pages/ecommerce/products/AddProduct';
+import EditProducts from '../pages/ecommerce/products/EditProducts';
+import Categories from '../pages/ecommerce/Categories/Categories';
+import AddCategories from '../pages/ecommerce/Categories/AddCategories';
+import EditCategory from '../pages/ecommerce/Categories/EditCategory';
+import AllReviews from '../pages/ecommerce/reviews/AllReviews';
+import EditReviews from '../pages/ecommerce/reviews/EditReviews';
+import CustomProduct from '../pages/ecommerce/custom-product/CustomProduct';
+import EditCustomProduct from '../pages/ecommerce/custom-product/EditCustomProduct';
+import AddCustomFlavor from '../pages/ecommerce/custom-product/AddCustomFlavor';
+import AllOrders from '../pages/ecommerce/order/AllOrders';
+import EditOrders from '../pages/ecommerce/order/EditOrder';
+import AllCustomOrder from '../pages/ecommerce/custom-order/AllCustomOrder';
+import EditCustomOrder from '../pages/ecommerce/custom-order/EditCustomOrder';
+import EditMember from '../pages/MembersManagement/EditMember';
+import AddRecipes from '../pages/SiteManagement/recipes/AddRecipes';
+import AllRecipes from '../pages/SiteManagement/recipes/AllRecipes';
+import EditRecipes from '../pages/SiteManagement/recipes/EditRecipes';
+import PromoComponent from '../pages/ecommerce/promo/PromoComponent';
+import AddPromo from '../pages/ecommerce/promo/AddPromo';
+import EditPromo from '../pages/ecommerce/promo/EditPromo';
+import TickerComponent from '../pages/SiteManagement/ticker/TickerComponent';
+import AddTicker from '../pages/SiteManagement/ticker/AddTicker';
+import EditTicker from '../pages/SiteManagement/ticker/EditTicker';
+import Shipping from '../pages/ecommerce/Shipping/Shipping';
+import AddZone from '../pages/ecommerce/Shipping/AddZone';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <LogIn />,
   },
   {
-    path: "/forgot-password",
+    path: '/forgot-password',
     element: <ForgotPassword />,
   },
   {
-    path: "/confirm-password",
+    path: '/confirm-password',
     element: <ResetPassword />,
   },
 
   {
-    path: "/dashboard",
+    path: '/dashboard',
     element: (
       <ProtectedRoutes>
         <RootLayout />
@@ -64,125 +66,141 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "store",
+        path: 'store',
         children: [
           {
-            path: "products",
+            path: 'products',
             children: [
               {
-                path: "",
+                path: '',
                 element: <Products />,
               },
               {
-                path: "add",
+                path: 'add',
                 element: <AddProduct />,
               },
               {
-                path: "edit",
+                path: 'edit',
                 element: <EditProducts />,
               },
             ],
           },
           {
-            path: "custom-product",
+            path: 'custom-product',
             children: [
               {
-                path: "",
+                path: '',
                 element: <CustomProduct />,
               },
               {
-                path: "add-flavor",
+                path: 'add-flavor',
                 element: <AddCustomFlavor />,
               },
               {
-                path: "edit-flavor",
+                path: 'edit-flavor',
                 element: <EditCustomProduct />,
               },
             ],
           },
-
           {
-            path: "reviews",
+            path: 'reviews',
             children: [
               {
-                path: "",
+                path: '',
                 element: <AllReviews />,
               },
               {
-                path: "edit",
+                path: 'edit',
                 element: <EditReviews />,
               },
             ],
           },
           {
-            path: "order",
+            path: 'shipping',
             children: [
               {
-                path: "",
+                path: '',
+                element: <Shipping />,
+              },
+              {
+                path: 'add',
+                element: <AddZone />,
+              },
+              {
+                path: ':id',
+                element: <AddZone />,
+              },
+            ],
+          },
+          {
+            path: 'order',
+            children: [
+              {
+                path: '',
                 element: <AllOrders />,
               },
               {
-                path: "edit",
+                path: 'edit',
                 element: <EditOrders />,
               },
             ],
           },
           {
-            path: "custom-order",
+            path: 'custom-order',
             children: [
               {
-                path: "",
+                path: '',
                 element: <AllCustomOrder />,
               },
               {
-                path: "edit",
+                path: 'edit',
                 element: <EditCustomOrder />,
               },
             ],
           },
           {
-            path: "categories",
+            path: 'categories',
             children: [
               {
-                path: "",
+                path: '',
                 element: <Categories />,
               },
               {
-                path: "add-category",
+                path: 'add-category',
                 element: <AddCategories />,
               },
               {
-                path: "edit-category",
+                path: 'edit-category',
                 element: <EditCategory />,
               },
             ],
           },
           {
-            path: "promo",
+            path: 'promo',
             children: [
               {
-                path: "",
+                path: '',
                 element: <PromoComponent />,
               },
               {
-                path: "add-promo",
+                path: 'add-promo',
                 element: <AddPromo />,
               },
               {
-                path: "edit-promo",
+                path: 'edit-promo',
                 element: <EditPromo />,
               },
             ],
           },
           {
-            path: "members",
+            path: 'members',
             children: [
               {
-                path: "",
+                path: '',
                 element: <AllMember />,
               },
               {
-                path: "edit",
+                path: 'edit',
                 element: <EditMember />,
               },
             ],
@@ -191,55 +209,55 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "management",
+        path: 'management',
         children: [
           {
-            path: "blogs",
+            path: 'blogs',
             children: [
               {
-                path: "",
+                path: '',
                 element: <BlogsComponent />,
               },
               {
-                path: "add",
+                path: 'add',
                 element: <AddBlogs />,
               },
               {
-                path: "edit",
+                path: 'edit',
                 element: <EditBlogs />,
               },
             ],
           },
           {
-            path: "recipes",
+            path: 'recipes',
             children: [
               {
-                path: "",
+                path: '',
                 element: <AllRecipes />,
               },
               {
-                path: "add",
+                path: 'add',
                 element: <AddRecipes />,
               },
               {
-                path: "edit",
+                path: 'edit',
                 element: <EditRecipes />,
               },
             ],
           },
           {
-            path: "ticker",
+            path: 'ticker',
             children: [
               {
-                path: "",
+                path: '',
                 element: <TickerComponent />,
               },
               {
-                path: "add",
+                path: 'add',
                 element: <AddTicker />,
               },
               {
-                path: "edit",
+                path: 'edit',
                 element: <EditTicker />,
               },
             ],
@@ -247,30 +265,30 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "",
+        path: '',
         element: <Indexdashboard />,
       },
 
       {
-        path: "profile",
+        path: 'profile',
         children: [
           {
-            path: "details",
+            path: 'details',
             element: <ProfileDetails />,
           },
           {
-            path: "update",
+            path: 'update',
             element: <ProfileUpdate />,
           },
           {
-            path: "password",
+            path: 'password',
             element: <ProfilePassword />,
           },
         ],
       },
 
       {
-        path: "newsletter",
+        path: 'newsletter',
         element: <Newsletter />,
       },
     ],

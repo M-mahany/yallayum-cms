@@ -18,6 +18,7 @@
     "axios": "^1.6.8",
     "ckeditor5-custom-build": "file:ckeditor5",
     "cookies": "^0.9.1",
+    "country-state-city": "^3.2.1",
     "framer-motion": "^11.1.7",
     "js-cookie": "^3.0.5",
     "prop-types": "^15.8.1",
@@ -36,7 +37,7 @@
     "redux-persist": "^6.0.0",
     "swr": "^2.2.5",
     "web-vitals": "^2.1.4",
-    "yup": "^1.4.0"
+    "yup": "^1.5.0"
   },
   "scripts": {
     "start": "react-scripts start",

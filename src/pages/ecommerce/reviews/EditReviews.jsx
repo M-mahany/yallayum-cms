@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react";
-import { useQuery } from "../../../hooks/queryParam";
-import { API } from "../../../api";
-import { errorToast, successToast } from "../../../hooks/useToast";
-import Header from "../../../components/dashboard/Header";
-import InputField from "../../../components/general/InputField";
-import { Input } from "@nextui-org/react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import ButtonComponent from "../../../components/general/ButtonComponent";
-import InfoCard from "../../../components/general/InfoCard";
+import React, { useEffect, useState } from 'react';
+import { useQuery } from '../../../hooks/queryParam';
+import { API } from '../../../api';
+import { errorToast, successToast } from '../../../hooks/useToast';
+import Header from '../../../components/dashboard/Header';
+import InputField from '../../../components/general/InputField';
+import { Input } from '@nextui-org/react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import ButtonComponent from '../../../components/general/ButtonComponent';
+import InfoCard from '../../../components/general/InfoCard';
 
 const EditReviews = () => {
   const query = useQuery();
-  const id = query.get("id");
+  const id = query.get('id');
   const navigate = useNavigate();
   const [loading, setLoading] = useState(null);
 
@@ -27,7 +27,7 @@ const EditReviews = () => {
       const response = await API.getSingleReview(id);
       setReview(response?.data?.data);
     } catch (error) {
-      errorToast(error, "Failed to load data");
+      errorToast(error, 'Failed to load data');
     }
   };
 
@@ -45,10 +45,10 @@ const EditReviews = () => {
     try {
       const response = await API.updateProductReview(id, {
         adminReply: data?.adminReply,
-        isApproved: data?.isApproved === "true" ? true : false,
+        isApproved: data?.isApproved === 'true' ? true : false,
       });
 
-      successToast(response?.data?.message, "Updated");
+      successToast(response?.data?.message, 'Updated');
       setLoading(false);
       navigate(-1);
     } catch (error) {
@@ -60,11 +60,7 @@ const EditReviews = () => {
   };
   return (
     <div className="page-area mt-10">
-      <Header
-        pagetitle={"Review"}
-        previous={"Dashboard"}
-        currentpage={"Edit Review"}
-      />
+      <Header pagetitle={'Review'} previous={'Dashboard'} currentpage={'Edit Review'} />
 
       <form className="grid grid-col-1 gap-6" onSubmit={handleSubmit(onSubmit)}>
         {review && (
@@ -92,7 +88,7 @@ const EditReviews = () => {
                 <InfoCard title="User Review" value={review?.userReview} />
               </div>
             </div>
-            <div className="grid grid-col-1 sm:grid-cols-3 gap-4 mt-4 items-center  w-full  ">
+            <div className="grid grid-col-1 sm:grid-cols-3 gap-4 mt-4 items-center w-full">
               <div className="text-area col-span-2">
                 <InputField
                   label="Give A reply"
@@ -112,7 +108,7 @@ const EditReviews = () => {
                 errors={errors}
                 name="isApproved"
                 register={register}
-                text={["approve", " decline"]}
+                text={['approve', ' decline']}
                 defaultValue={review?.isApproved}
               />
             </div>
@@ -122,18 +118,8 @@ const EditReviews = () => {
 
         <div className="w-full md:w-1/4 mt-4">
           <div className="flex gap-3">
-            <ButtonComponent
-              type="submit"
-              text="Save"
-              loading={loading}
-              isActive={true}
-            />
-            <ButtonComponent
-              text="Cancel"
-              isActive={true}
-              btnclass={"bg-red-500"}
-              onClick={() => handleCancle()}
-            />
+            <ButtonComponent type="submit" text="Save" loading={loading} isActive={true} />
+            <ButtonComponent text="Cancel" isActive={true} btnclass={'bg-red-500'} onClick={() => handleCancle()} />
           </div>
         </div>
       </form>

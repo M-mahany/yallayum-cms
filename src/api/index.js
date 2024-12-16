@@ -1,5 +1,5 @@
-import axios from "axios";
-import Cookies from "js-cookie";
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL_SERVER;
 
@@ -10,8 +10,8 @@ const API = axios.create({
 API.interceptors.request.use(
   function (config) {
     let token;
-    if (Cookies.get("token")) {
-      token = Cookies.get("token");
+    if (Cookies.get('token')) {
+      token = Cookies.get('token');
     }
     config.headers.authorization = `${token}`;
     return config;
@@ -23,23 +23,21 @@ API.interceptors.request.use(
 
 //adminlogin
 API.adminLogin = (data) => {
-  return API.post("admin/login", data);
+  return API.post('admin/login', data);
 };
 
 API.changePassword = (data) => {
-  return API.patch("admin/change-password", data);
+  return API.patch('admin/change-password', data);
 };
 
 API.updateProfile = (data) => {
   return API.patch(`admin/`, data);
 };
 
- 
-
 //Category
 
 API.getAllCategories = () => {
-  return API.get("category");
+  return API.get('category');
 };
 
 API.getSingleCategorey = (id, data) => {
@@ -47,7 +45,7 @@ API.getSingleCategorey = (id, data) => {
 };
 
 API.createCategory = (data) => {
-  return API.post("category", data);
+  return API.post('category', data);
 };
 
 API.updateCategory = (id, data) => {
@@ -57,7 +55,7 @@ API.updateCategory = (id, data) => {
 // blogs
 
 API.getBlogHeading = () => {
-  return API.get("/blog-heading");
+  return API.get('/blog-heading');
 };
 
 API.updateBlogHeading = (id, data) => {
@@ -65,7 +63,7 @@ API.updateBlogHeading = (id, data) => {
 };
 
 API.getAllBlogs = () => {
-  return API.get("blog");
+  return API.get('blog');
 };
 
 API.getSingleBlog = (id) => {
@@ -73,7 +71,7 @@ API.getSingleBlog = (id) => {
 };
 
 API.createBlogs = (data) => {
-  return API.post("blog", data);
+  return API.post('blog', data);
 };
 
 API.updateBlogs = (id, data) => {
@@ -87,7 +85,7 @@ API.deleteBlogs = (id) => {
 // Recipes
 
 API.getRecipeHeading = () => {
-  return API.get("/recipe-heading");
+  return API.get('/recipe-heading');
 };
 
 API.updateRecipeHeading = (id, data) => {
@@ -95,7 +93,7 @@ API.updateRecipeHeading = (id, data) => {
 };
 
 API.getAllRecipes = () => {
-  return API.get("recipe");
+  return API.get('recipe');
 };
 
 API.getSingleRecipe = (id) => {
@@ -103,7 +101,7 @@ API.getSingleRecipe = (id) => {
 };
 
 API.createRecipe = (data) => {
-  return API.post("recipe", data);
+  return API.post('recipe', data);
 };
 
 API.updateRecipe = (id, data) => {
@@ -114,16 +112,9 @@ API.deleteRecipe = (id) => {
   return API.delete(`recipe/${id}`);
 };
 
- 
-
- 
- 
- 
- 
- 
- //MembersManagement
+//MembersManagement
 API.getAllUsers = () => {
-  return API.get("user");
+  return API.get('user');
 };
 
 API.getSingleUsers = (id) => {
@@ -131,10 +122,10 @@ API.getSingleUsers = (id) => {
 };
 
 API.getAllSubscribedMembers = () => {
-  return API.get("user/subscription");
+  return API.get('user/subscription');
 };
 API.registerUserSubscription = (data) => {
-  return API.post("user/subscription", data);
+  return API.post('user/subscription', data);
 };
 API.getSingleSubscribedMembers = (id) => {
   return API.get(`user/subscription/${id}`);
@@ -144,22 +135,21 @@ API.updateUserSubscription = (id, data) => {
 };
 
 API.createuser = (data) => {
-  return API.post("user/by-admin", data);
+  return API.post('user/by-admin', data);
 };
 
 API.updateUser = (id, data) => {
   return API.patch(`user/by-admin/${id}`, data);
 };
 
-
 //product
 
 API.uploadProduct = (data) => {
-  return API.post("/product", data);
+  return API.post('/product', data);
 };
 
 API.getProducts = () => {
-  return API.get("/product/admin");
+  return API.get('/product/admin');
 };
 
 API.getSingleProduct = (id) => {
@@ -172,7 +162,7 @@ API.updateProduct = (id, data) => {
 
 // productReviews
 API.getAllProductReviews = () => {
-  return API.get("productReview");
+  return API.get('productReview');
 };
 
 API.getSingleReview = (id) => {
@@ -184,21 +174,21 @@ API.updateProductReview = (id, data) => {
 };
 //newsletter
 API.getAllNewsletter = () => {
-  return API.get("/newsletter");
+  return API.get('/newsletter');
 };
 
 API.uploadImages = (data) => {
-  return API.post("/image", data);
+  return API.post('/image', data);
 };
 
 API.uploadVideo = (data) => {
-  return API.post("/video", data);
+  return API.post('/video', data);
 };
 
 //order
 
 API.getAllOrders = () => {
-  return API.get("/order");
+  return API.get('/order');
 };
 
 API.getSingleOrder = (id) => {
@@ -212,7 +202,7 @@ API.orderUpdateStatus = (id, data) => {
 //custom order
 
 API.getAllCustomOrders = () => {
-  return API.get("/custom-order");
+  return API.get('/custom-order');
 };
 
 API.getSingleCustomOrder = (id) => {
@@ -226,21 +216,21 @@ API.updateCustomOrder = (id, data) => {
 //statistics
 
 API.getStatistics = () => {
-  return API.get("/statistics");
+  return API.get('/statistics');
 };
 
 // custom product
 API.getAllFlavor = () => {
-  return API.get("flavor");
+  return API.get('flavor');
 };
 API.createFlavor = (data) => {
-  return API.post("flavor", data);
+  return API.post('flavor', data);
 };
 API.updateFlavor = (id, data) => {
   return API.patch(`flavor/${id}`, data);
 };
 API.getAllSize = () => {
-  return API.get("size");
+  return API.get('size');
 };
 API.updateSize = (id, data) => {
   return API.patch(`size/${id}`, data);
@@ -249,25 +239,28 @@ API.updateSize = (id, data) => {
 // promo code
 
 API.registerPromo = (data) => {
-  return API.post("/promo", data);
+  return API.post('/promo', data);
 };
 
 API.getPromo = () => {
-  return API.get("/promo");
+  return API.get('/promo');
 };
 
 API.updatePromo = (id, data) => {
   return API.patch(`/promo/${id}`, data);
 };
+API.deletePromo = (id) => {
+  return API.delete(`/promo/${id}`);
+};
 
 //ticker
 
 API.registerTicker = (data) => {
-  return API.post("/ticker", data);
+  return API.post('/ticker', data);
 };
 
 API.getTickers = () => {
-  return API.get("/ticker");
+  return API.get('/ticker');
 };
 
 API.updateTicker = (id, data) => {
@@ -276,6 +269,26 @@ API.updateTicker = (id, data) => {
 
 API.deleteTicker = (id) => {
   return API.delete(`/ticker/${id}`);
+};
+
+// Shipping
+API.createNewZone = (data) => {
+  return API.post('/shipping', data);
+};
+API.getAllZones = () => {
+  return API.get('/shipping');
+};
+API.deleteZone = (id) => {
+  return API.delete(`/shipping/${id}`);
+};
+API.getZoneById = (id) => {
+  return API.get(`/shipping/${id}`);
+};
+API.updateZoneById = (id, data) => {
+  return API.patch(`/shipping/${id}`, data);
+};
+API.deleteShippingMethod = (id) => {
+  return API.delete(`/shipping/method/${id}`);
 };
 
 export { API };
