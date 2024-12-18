@@ -195,7 +195,7 @@ const AddZone = () => {
     }
     return {
       ...shippingData,
-      name: item?.name ?? item.type === 'FREE_SHIPPING' ? 'Free Shipping' : 'Flat Rate',
+      name: item.type === 'FREE_SHIPPING' ? 'Free Shipping' : 'Flat Rate',
       type: item.type,
     };
   };
